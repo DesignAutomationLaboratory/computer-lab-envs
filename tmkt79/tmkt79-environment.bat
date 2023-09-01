@@ -17,8 +17,8 @@ set INIT_SCRIPT_PATH=%EXTRACT_PATH%\computer-lab-envs-main\tmkt79\init.ps1
 echo [101;93m=== TMKT79 environment helper ===[0m
 
 echo %PROMPT_PREFIX% Downloading and extracting up-to-date resources...
-powershell -Command "Invoke-WebRequest %ARCHIVE_URL% -OutFile %ARCHIVE_PATH%" || goto :error
-powershell -Command "Expand-Archive -Path %ARCHIVE_PATH% -DestinationPath %EXTRACT_PATH%" -Force || goto :error
+powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest %ARCHIVE_URL% -OutFile %ARCHIVE_PATH%" || goto :error
+powershell -ExecutionPolicy Bypass -Command "Expand-Archive -Path %ARCHIVE_PATH% -DestinationPath %EXTRACT_PATH%" -Force || goto :error
 
 echo %PROMPT_PREFIX% Setting up environment...
 powershell -ExecutionPolicy Bypass -Command "%INIT_SCRIPT_PATH%"
