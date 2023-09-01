@@ -1,0 +1,64 @@
+Language="VBSCRIPT"
+
+Sub CATMain()
+
+Dim settingControllers As SettingControllers
+Set settingControllers = CATIA.SettingControllers
+
+With settingControllers.Item("CATMmuPartInfrastructureSettingCtrl")
+    .BodiesUnderOperationsInTree = True
+    .ConstraintsNodeInTree = True
+    .ExpandSketchBasedFeaturesNodeAtCreation = True
+    .ExternalReferencesAssemblyRootContext = True
+    .ExternalReferencesAsVisible = False
+    .ExternalReferencesNodeInTree = True
+    .HybridDesignMode = False
+    .KnowledgeInHybridDesignMode = False
+    .LinkedExternalReferences = True
+    .LinkedExternalReferencesOnlyOnPublication = False
+    .LinkedExternalReferencesWarningAtCreation = False
+    .NewWithAxisSystem = False
+    .NewWithGS = False
+    .NewWithOGS = False
+    .NewWithPanel = True
+    .NewWith3DSupport = False
+    .ParametersNodeInTree = True
+    .PublishTopologicalElements = True
+    .RelationsNodeInTree = True
+    .UpdateElementsRefreshed = False
+    .UpdateLinkedExternalReferences = True
+    .UpdateMode = catAutomaticUpdate
+    .UpdateStoppedOnError = True
+    .SaveRepository()
+End With
+
+With settingControllers.Item("CATCafTreeVizManipSettingCtrl")
+    .ArcSelectionActivation = False
+    .ShowActivation = True
+    .SaveRepository()
+End With
+
+With settingControllers.Item("CATSPAMeasureSettingCtrl")
+    .PartUpdateStatus = True
+    .ProductUpdateStatus = True
+    .SaveRepository()
+End With
+
+With settingControllers.Item("CATLieKnowledgeSheetSettingCtrl")
+    .ParameterNameSurroundedByTheSymbol = 0
+    .ParameterTreeViewWithFormula = 0
+    .ParameterTreeViewWithValue = 1
+    .RelationsUpdateInPartContextSynchronousRelations = 1
+    .RelationsUpdateInPartContextEvaluateDuringUpdate = 0
+    .SaveRepository()
+End With
+
+With settingControllers.Item("CATSamAnalysisGeneralSettingCtrl")
+    .ViewAnalysisParameter = 1
+    .ViewAnalysisRelation = 1
+    .SaveRepository()
+End With
+
+CATIA.Quit()
+
+End Sub

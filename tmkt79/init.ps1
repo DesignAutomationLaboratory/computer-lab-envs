@@ -1,17 +1,15 @@
 function setupCatiaSettings {
-  # This is using the brute-force approach of copying the CATSettings. A
-  # more elegant approach would be to use the CATIA COM API to do all
-  # stuff, but that's a bit hard to do, due to the following reasons:
-  # 1. PowerShell and the CATIA COM API don't seem to like each other.
-  # 2. It may not be possible to set the license via the API on a cold
-  #    CATIA environment.
-  # 3. There's no way to set the tree visualization settings via the
-  #    API.
-  $catEnvPath = $PSScriptRoot + "\catia\CATSettings"
-  $userCatEnvPath = $env:APPDATA + "\DassaultSystemes\CATSettings"
+  $catiaEnvPath = Join-Path $PSScriptRoot "catia"
 
-  New-Item -Force -Type Directory -Path $userCatEnvPath
-  Copy-Item -Path $catEnvPath/* -Destination $userCatEnvPath -Recurse -Force
+  # Brute-force copy the CATSettings that needs to be set with settings
+  # files (e.g. licensing and tree visualization)
+  $catSettingsPath = Join-Path $catiaEnvPath "CATSettings"
+  $userCatSettingsPath = Join-Path $env:APPDATA "DassaultSystemes/CATSettings"
+  New-Item -Force -Type Directory -Path $userCatSettingsPath
+  Copy-Item -Path $catSettingsPath/* -Destination $userCatSettingsPath -Recurse -Force
+
+  # Set the other settings via CATScript
+  Invoke-Item (Join-Path $catiaEnvPath "setup.CATScript")
 }
 
 function setupExcelTrust {
