@@ -26,3 +26,5 @@ setupExcel | Out-Null
 
 Write-Host -ForegroundColor Blue "* Setting up CATIA..."
 setupCatia | Out-Null
+
+Write-Host -ForegroundColor Green "Setup complete. Good luck! :D"
