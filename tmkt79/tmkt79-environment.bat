@@ -24,7 +24,6 @@ powershell -ExecutionPolicy Bypass -Command "Expand-Archive -Path %ARCHIVE_PATH%
 echo %PROMPT_PREFIX%Setting up environment...%PROMPT_SUFFIX%
 powershell -ExecutionPolicy Bypass -Command "%INIT_SCRIPT_PATH%"
 
-echo %PROMPT_PREFIX%Done!%PROMPT_SUFFIX%
 pause
 goto :EOF
 
