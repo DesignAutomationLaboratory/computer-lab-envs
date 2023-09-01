@@ -12,17 +12,6 @@ function setupCatiaSettings {
 
   New-Item -Force -Type Directory -Path $userCatEnvPath
   Copy-Item -Path $catEnvPath/* -Destination $userCatEnvPath -Recurse -Force
-
-  # $catia = New-Object -ComObject CATIA.Application
-  # $catia.Interactive = $false
-  # $catia.Visible = $false
-  # $catia.DisplayFileAlerts = $false
-
-  # $settingControllers = $catia.SettingsControllers()
-  # $licenseSettingsController = $settingControllers.Item("CATSysLicenseSettingCtrl")
-  # $licenseSettingsController.SetLicense("_EX2.slt+CPECPM", "_EX2.slt+CPECPM")
-  # $licenseSettingsController.SaveRepository()
-  # $catia.Quit()
 }
 
 function setupExcelTrust {
