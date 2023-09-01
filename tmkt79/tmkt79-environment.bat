@@ -7,7 +7,7 @@ REM be tracked and made during the courses without needing to instruct
 REM students to download a new version of this file.
 
 setlocal
-set PROMPT_PREFIX=[101;93m
+set PROMPT_PREFIX=[33m
 set PROMPT_SUFFIX=[0m
 set ARCHIVE_URL=https://github.com/ovidner/computer-lab-envs/archive/refs/heads/main.zip
 set ARCHIVE_PATH=%TEMP%\computer-lab-envs.zip
