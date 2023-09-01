@@ -21,7 +21,7 @@ echo %PROMPT_PREFIX%Downloading and extracting up-to-date resources...%PROMPT_SU
 powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest %ARCHIVE_URL% -OutFile %ARCHIVE_PATH%" || goto :error
 powershell -ExecutionPolicy Bypass -Command "Expand-Archive -Path %ARCHIVE_PATH% -DestinationPath %EXTRACT_PATH%" -Force || goto :error
 
-echo %PROMPT_PREFIX%Setting up environment...%PROMPT_SUFFIX%
+echo %PROMPT_PREFIX%Running setup script:%PROMPT_SUFFIX%
 powershell -ExecutionPolicy Bypass -Command "%INIT_SCRIPT_PATH%"
 
 pause
