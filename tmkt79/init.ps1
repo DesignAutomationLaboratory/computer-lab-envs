@@ -15,7 +15,9 @@ function setupCatiaSettings {
 }
 
 function setupExcelTrust {
+  # Enable access to the VBA object model
   New-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Excel\Security\" -Name "AccessVBOM" -PropertyType "DWord" -Value 1 -Force
+  # Enable all macros
   New-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Excel\Security\" -Name "VBAWarnings" -PropertyType "DWord" -Value 1 -Force
 }
 
