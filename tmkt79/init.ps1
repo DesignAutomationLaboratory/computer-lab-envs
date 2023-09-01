@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop"
+
 function setupCatia {
   $catiaEnvPath = Join-Path $PSScriptRoot "catia"
 
