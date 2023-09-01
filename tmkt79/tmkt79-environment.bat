@@ -7,9 +7,9 @@ REM When extracting, a subfolder will be created
 set EXTRACT_PATH=%LOCALAPPDATA%
 set INIT_SCRIPT_PATH=%EXTRACT_PATH%\computer-lab-envs-main\tmkt79\init.ps1
 
-echo [101;93m=== TMKT79 settings helper ===[0m
+echo [101;93m=== TMKT79 environment helper ===[0m
 
-echo %PROMPT_PREFIX% Downloading and extracting up-to-date settings...
+echo %PROMPT_PREFIX% Downloading and extracting up-to-date resources...
 powershell -Command "Invoke-WebRequest %ARCHIVE_URL% -OutFile %ARCHIVE_PATH%" || goto :error
 powershell -Command "Expand-Archive -Path %ARCHIVE_PATH% -DestinationPath %EXTRACT_PATH%" -Force || goto :error
 
