@@ -1,4 +1,11 @@
 @echo off
+REM This script will download and extract the latest version of the
+REM TMKT79 environment helper. DON'T EDIT THIS FILE (unless there's some
+REM error in the bootstrapping process). Make changes to the PowerShell
+REM script and push to the repository instead. In that way, changes can
+REM be tracked and made during the courses without needing to instruct
+REM students to download a new version of this file.
+
 setlocal
 set PROMPT_PREFIX=[91m~[93m~[92m~[0m
 set ARCHIVE_URL=https://github.com/ovidner/computer-lab-envs/archive/refs/heads/main.zip
