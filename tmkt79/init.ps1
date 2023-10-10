@@ -1,5 +1,17 @@
 $ErrorActionPreference = "Stop"
 
+$catiaInstallPath = Join-Path $env:ProgramFiles "Dassault Systemes/B31/win_b64"
+
+function checkCatia {
+  $catiaSoftwareMgmt = Join-Path $catiaInstallPath "code/bin/CATSoftwareMgtB.exe"
+  $installedModules = & $catiaSoftwareMgmt -L
+
+  # Check for Generative Part Structural Analysis
+  if (-Not ($installedModules | Select-String -Quiet "GPS")) {
+    throw "CATIA installation is not valid."
+  }
+}
+
 function setupCatia {
   $catiaEnvPath = Join-Path $PSScriptRoot "catia"
 
@@ -23,6 +35,9 @@ function setupExcel {
 
 Write-Host -ForegroundColor Blue "* Setting up Excel..."
 setupExcel | Out-Null
+
+Write-Host -ForegroundColor Blue "* Checking CATIA installation..."
+checkCatia | Out-Null
 
 Write-Host -ForegroundColor Blue "* Setting up CATIA..."
 setupCatia | Out-Null
