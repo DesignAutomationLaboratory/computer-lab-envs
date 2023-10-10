@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Inquire"
 
 $catiaInstallPath = Join-Path $env:ProgramFiles "Dassault Systemes/B31/win_b64"
 
